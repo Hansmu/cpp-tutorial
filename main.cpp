@@ -1,11 +1,14 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 void variableExamples();
+void arraysAndVectorsExamples();
 
 int main() {
     variableExamples();
+    arraysAndVectorsExamples();
 
     return 0;
 }
@@ -50,4 +53,32 @@ void arraysAndVectorsExamples() {
     testScores[0] = 72;
 
     char vowels[] {'a', 'e', 'i', 'o', 'u'};
+
+    // Dynamic size
+    vector<char> vowelsVector (5);
+    vector<int> numbers(10); // Automatically initialized to 0
+    vector<char> initializedChars {'a', 'e', 'i', 'o', 'u'};
+
+    vector<double> temps (3, 90.9); // Number of elements, elements to initialize to
+
+    vowelsVector.at(0) = 'a';
+
+    cout << temps[0] << endl; // Can use [] to access value. This option returns gibberish when out of bounds.
+    cout << temps.at(1) << endl; // Or .at(). This option, however, gives an exception when out of bounds.
+    cout << temps.size() << endl;
+
+    temps.push_back(100.8); // Add new value to the end of the vector
+
+    cout << temps.size() << endl;
+
+    vector<vector<int>> twoDimensionVector {
+        {1, 2, 3, 4},
+        {1, 2, 3, 4},
+        {1, 2, 3, 4}
+    };
+
+    // Inserting into vectors creates a copy of the value inserted. If you'd insert a vector inside of the above vector
+    // And then if you'd change the inserted vector, then the one in the 2D vector would not change as it's a copy inside
+    // of that, not the original value.
+    cout << twoDimensionVector.at(0).at(1) << endl;
 }
