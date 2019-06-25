@@ -39,3 +39,15 @@ void variableExamples() {
     const double salesTax {0.06};
     const int estimateExpirationDays {30};
 }
+
+void arraysAndVectorsExamples() {
+    int uninitialized [5];
+    int testScores [5] {100, 95, 99, 86, 12};
+    double initAllToZero [365] {0};
+    double initAllToZeroAlso [365] {};
+    int automaticSizeCalculation [] {1, 2, 3, 4, 5};
+
+    testScores[0] = 72;
+
+    char vowels[] {'a', 'e', 'i', 'o', 'u'};
+}
