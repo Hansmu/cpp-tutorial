@@ -122,4 +122,9 @@ void operatorExamples() {
 
     truthy || truthy;
     truthy or truthy;
+
+    num1 += 2;
+    num1 -= 2;
+    num1 /= 5;
+    num1 ^= 2;
 }
