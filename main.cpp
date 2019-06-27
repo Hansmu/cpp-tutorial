@@ -6,11 +6,13 @@ using namespace std;
 void variableExamples();
 void arraysAndVectorsExamples();
 void operatorExamples();
+void controlStatementExamples();
 
 int main() {
     variableExamples();
     arraysAndVectorsExamples();
     operatorExamples();
+    controlStatementExamples();
 
     return 0;
 }
@@ -127,4 +129,40 @@ void operatorExamples() {
     num1 -= 2;
     num1 /= 5;
     num1 ^= 2;
+}
+
+void controlStatementExamples() {
+    int num1 {100}, num {};
+    vector<int> someVector {17, 26, 35, 42, 51};
+
+    num = true ? 100 : 0;
+
+    switch (num1) {
+        case 1:
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+
+    if (true) {
+        while(false) {
+
+        }
+    } else if (false) {
+
+    } else {
+        do {
+
+        } while (false);
+    }
+
+    for (int i = 0; i < 1; i++) {
+
+    }
+
+    for (auto variable : someVector) {
+
+    }
 }
