@@ -5,10 +5,12 @@ using namespace std;
 
 void variableExamples();
 void arraysAndVectorsExamples();
+void operatorExamples();
 
 int main() {
     variableExamples();
     arraysAndVectorsExamples();
+    operatorExamples();
 
     return 0;
 }
@@ -81,4 +83,28 @@ void arraysAndVectorsExamples() {
     // And then if you'd change the inserted vector, then the one in the 2D vector would not change as it's a copy inside
     // of that, not the original value.
     cout << twoDimensionVector.at(0).at(1) << endl;
+}
+
+void operatorExamples() {
+    int num1 {200};
+    int num2 {100};
+
+    bool truthy = true;
+
+    num1 + num2;
+    num1 - num2;
+    num1 * num2;
+    num1 / num2;
+    num1 % num2;
+
+    ++num1;
+    num1++;
+
+    num1--;
+    --num1;
+
+    // (double)num1; // old style
+    double castNum1 = static_cast<double>(num1);
+
+
 }
