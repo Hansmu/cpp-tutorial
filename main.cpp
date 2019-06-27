@@ -106,5 +106,20 @@ void operatorExamples() {
     // (double)num1; // old style
     double castNum1 = static_cast<double>(num1);
 
+    num1 == 100;
+    num1 != 100;
 
+    num1 > num2;
+    num1 < num2;
+    num1 >= num2;
+    num1 <= num2;
+
+    !truthy;
+    not truthy;
+
+    truthy && truthy;
+    truthy and truthy;
+
+    truthy || truthy;
+    truthy or truthy;
 }
