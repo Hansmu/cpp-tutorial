@@ -14,6 +14,7 @@ double defaultParameterExample(double param1 = 0, double param2 = 2.11);
 void arrayLoop(const int arr[], size_t size);
 void passByReferenceExample(int &num);
 void print(const vector<int> &v);
+void staticExample();
 
 int main() {
     variableExamples();
@@ -34,7 +35,17 @@ int main() {
     vector<int> test {1, 4, 56, 1};
     print(test);
 
+    staticExample();
+    staticExample();
+
     return 0;
+}
+
+void staticExample() {
+    // Value is kept between every call
+    static int var = 10;
+    var++;
+    cout << endl << var << " ";
 }
 
 void variableExamples() {
