@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include <string>
 
 using namespace std;
 
@@ -8,12 +9,14 @@ void variableExamples();
 void arraysAndVectorsExamples();
 void operatorExamples();
 void controlStatementExamples();
+void characterAndStringsExamples();
 
 int main() {
     variableExamples();
     arraysAndVectorsExamples();
     operatorExamples();
     controlStatementExamples();
+    characterAndStringsExamples();
 
     return 0;
 }
@@ -171,6 +174,7 @@ void controlStatementExamples() {
 void characterAndStringsExamples() {
     // There are C style strings and C++
     // C style has a null termination character
+    // All of the C style functions require the null character to exist
 
     char str[80];
     strcpy(str, "Hello");
@@ -178,5 +182,17 @@ void characterAndStringsExamples() {
     strlen(str);
     strcmp(str, "Bananas");
 
+    // C++ string sizes are dynamic. Can use regular operators +, = etc.
+    string s2 {"Bobbert"};
+    string bob {s2, 0, 3};
+    string fullName = bob + " " + s2;
+    fullName += ", PhD";
+    bob == s2;
 
+    fullName.substr(0, 3);
+    fullName.find(bob);
+
+    for (char c : fullName) {
+        cout << c << endl;
+    }
 }
