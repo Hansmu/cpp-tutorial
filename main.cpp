@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstring>
 
 using namespace std;
 
@@ -165,4 +166,17 @@ void controlStatementExamples() {
     for (auto variable : someVector) {
 
     }
+}
+
+void characterAndStringsExamples() {
+    // There are C style strings and C++
+    // C style has a null termination character
+
+    char str[80];
+    strcpy(str, "Hello");
+    strcat(str, " there");
+    strlen(str);
+    strcmp(str, "Bananas");
+
+
 }
