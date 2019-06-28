@@ -12,6 +12,8 @@ void controlStatementExamples();
 void characterAndStringsExamples();
 double defaultParameterExample(double param1 = 0, double param2 = 2.11);
 void arrayLoop(const int arr[], size_t size);
+void passByReferenceExample(int &num);
+void print(const vector<int> &v);
 
 int main() {
     variableExamples();
@@ -24,6 +26,13 @@ int main() {
     defaultParameterExample(10, 3);
     int arr[] {1, 2, 3, 4};
     arrayLoop(arr, 4);
+
+    int num = 234;
+    passByReferenceExample(num);
+    cout << endl << num << endl;
+
+    vector<int> test {1, 4, 56, 1};
+    print(test);
 
     return 0;
 }
@@ -213,5 +222,17 @@ double defaultParameterExample(double param1, double param2) {
 void arrayLoop(const int arr[], size_t size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
+    }
+}
+
+void passByReferenceExample(int &num) {
+    num = 1000;
+}
+
+// A vector is passed by copy, so the entire vector would get copied, this can lead to performance issues
+// So it's better to pass a vector by reference.
+void print(const vector<int> &v) {
+    for (auto num : v) {
+        cout << num << " ";
     }
 }
