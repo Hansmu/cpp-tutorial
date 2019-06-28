@@ -11,6 +11,7 @@ void operatorExamples();
 void controlStatementExamples();
 void characterAndStringsExamples();
 double defaultParameterExample(double param1 = 0, double param2 = 2.11);
+void arrayLoop(const int arr[], size_t size);
 
 int main() {
     variableExamples();
@@ -21,6 +22,8 @@ int main() {
     defaultParameterExample();
     defaultParameterExample(10);
     defaultParameterExample(10, 3);
+    int arr[] {1, 2, 3, 4};
+    arrayLoop(arr, 4);
 
     return 0;
 }
@@ -204,4 +207,11 @@ void characterAndStringsExamples() {
 
 double defaultParameterExample(double param1, double param2) {
     return param1 * param2;
+}
+
+// Have to pass in the size as the method knows nothing about the size of the array, since a pointer to the first element is passed in
+void arrayLoop(const int arr[], size_t size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
 }
