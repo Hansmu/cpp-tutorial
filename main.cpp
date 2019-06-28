@@ -10,6 +10,7 @@ void arraysAndVectorsExamples();
 void operatorExamples();
 void controlStatementExamples();
 void characterAndStringsExamples();
+double defaultParameterExample(double param1 = 0, double param2 = 2.11);
 
 int main() {
     variableExamples();
@@ -17,6 +18,9 @@ int main() {
     operatorExamples();
     controlStatementExamples();
     characterAndStringsExamples();
+    defaultParameterExample();
+    defaultParameterExample(10);
+    defaultParameterExample(10, 3);
 
     return 0;
 }
@@ -195,4 +199,9 @@ void characterAndStringsExamples() {
     for (char c : fullName) {
         cout << c << endl;
     }
+}
+
+
+double defaultParameterExample(double param1, double param2) {
+    return param1 * param2;
 }
