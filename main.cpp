@@ -52,6 +52,15 @@ int main() {
 
     delete newArr;
 
+    // Use a loop variable by reference, this way a copy won't be made and it'll speed up execution.
+    // Could be a performance problem if there's some custom class that's really big. Add the const to make sure
+    // The reference isn't changed.
+    for (auto const &number: test) {
+        cout << number;
+    }
+
+    cout << endl;
+
     return 0;
 }
 
