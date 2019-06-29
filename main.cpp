@@ -15,6 +15,7 @@ void arrayLoop(const int arr[], size_t size);
 void passByReferenceExample(int &num);
 void print(const vector<int> &v);
 void staticExample();
+void pointerExample();
 
 int main() {
     variableExamples();
@@ -38,7 +39,42 @@ int main() {
     staticExample();
     staticExample();
 
+    pointerExample();
+
     return 0;
+}
+
+void pointerExample() {
+    // Without initialization a pointer variable can point anywhere and it might be data we should not be touching.
+    // Always initialize pointer variables.
+    int *int_ptr {nullptr};
+    int num {10};
+
+    cout << "Value is " << num << endl;
+    cout << "Address is " << &num << endl;
+
+    // Now the value stored in int_ptr is the address where num is situated in memory.
+    int_ptr = &num;
+
+    cout << "Value is the memory address to which it is pointing " << int_ptr << endl;
+    cout << "Address is the block in memory where the pointer value (memory address it is pointing to) is stored " << &int_ptr << endl;
+
+    // Change the value in the address that it's pointing to, so the original num would change as well, since they're both using
+    // The same memory address. So it overwrites the value in the memory block. Changes the 10 to 211.
+    *int_ptr = 211;
+
+    cout << "Values: " << num << " " << *int_ptr << endl;
+
+    vector<string> vec {"Bob", "Moe", "Joe"};
+    vector<string> *vec_ptr {&vec};
+
+    cout << "First element: " << (*vec_ptr).at(0) << endl;
+
+    for (auto el : *vec_ptr) {
+        cout << el << " ";
+    }
+
+    cout << endl;
 }
 
 void staticExample() {
