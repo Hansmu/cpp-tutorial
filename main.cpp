@@ -16,6 +16,9 @@ void passByReferenceExample(int &num);
 void print(const vector<int> &v);
 void staticExample();
 void pointerExample();
+void passByReferenceExample(int *num);
+void display(const vector<string> *const v);
+int* createArray(size_t size, int init_value = 0);
 
 int main() {
     variableExamples();
@@ -31,7 +34,7 @@ int main() {
 
     int num = 234;
     passByReferenceExample(num);
-    cout << endl << num << endl;
+    cout << endl << "Changed num value: " << num << endl;
 
     vector<int> test {1, 4, 56, 1};
     print(test);
@@ -41,7 +44,39 @@ int main() {
 
     pointerExample();
 
+    int num2 {100};
+    passByReferenceExample(&num2);
+    cout << "After the reference: " << num2 << endl;
+
+    int* newArr = createArray(10, -5);
+
+    delete newArr;
+
     return 0;
+}
+
+int* createArray(size_t size, int init_value) {
+    int *new_storage {nullptr};
+
+    new_storage = new int[size];
+
+    for (size_t i {0}; i < size; i++) {
+        *(new_storage + i) = init_value;
+    }
+
+    return new_storage;
+}
+
+void display(const vector<string> *const v) {
+    for (auto el: *v) {
+        cout << el << " ";
+    }
+
+    cout << endl;
+}
+
+void passByReferenceExample(int *num) {
+    *num *= 2;
 }
 
 void pointerExample() {
