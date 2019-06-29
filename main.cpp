@@ -75,6 +75,27 @@ void pointerExample() {
     }
 
     cout << endl;
+
+    // Memory for pointers comes from the heap.
+    int_ptr = nullptr;
+
+    int_ptr = new int; // Allocate an int size block from the heap. Contains garbage data.
+    // If you lose your reference to the block of memory, then you have a memory leak.
+    // Have to clear the memory block to avoid memory leaks after you're done using the memory.
+
+    delete int_ptr; // Frees the allocated storage.
+
+    // Allocate continuous block of memory for an int array
+    int_ptr = new int[5]; // Get a reference to the first element's memory block.
+
+    // Release int array block.
+    delete [] int_ptr;
+
+    int arr[] {50, 12, 31};
+    int_ptr = arr;
+
+    cout << "Second element via different methods: " << *(arr + 1) << " " << arr[1] << " " << *(int_ptr + 1) << " " << int_ptr[1] << endl;
+    cout << "Second element address via different methods: " << arr + 1 << " " << &arr[1] << " " << int_ptr + 1 << " " << &int_ptr[1] << endl;
 }
 
 void staticExample() {
