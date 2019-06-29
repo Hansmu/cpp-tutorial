@@ -96,6 +96,29 @@ void pointerExample() {
 
     cout << "Second element via different methods: " << *(arr + 1) << " " << arr[1] << " " << *(int_ptr + 1) << " " << int_ptr[1] << endl;
     cout << "Second element address via different methods: " << arr + 1 << " " << &arr[1] << " " << int_ptr + 1 << " " << &int_ptr[1] << endl;
+
+    int scores[] {100, 92, 41, 21, -1};
+    int *score_ptr {scores};
+
+    // Loop through array using a pointer
+    while (*score_ptr != -1) {
+        cout << *score_ptr << " " << endl;
+        score_ptr++;
+    }
+
+    // Can define a pointer that has a constant value or a constant memory address
+    // A const pointer to the value, cannot change the value using this, but can change the memory address.
+    const int *score_ptr2 {scores};
+//    *score_ptr2 = 21; //Illegal
+    score_ptr2 = &arr[1];
+
+    // A const pointer to the memory address, cannot change the memory address this pointer references.
+    int *const score_ptr3 {scores};
+    *score_ptr3 = 12;
+//    score_ptr3 = &arr[2]; // Illegal
+
+    // And can combine them both
+    const int *const score_ptr4 {scores};
 }
 
 void staticExample() {
