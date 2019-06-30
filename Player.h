@@ -17,6 +17,7 @@ private:
     // It can unexpectedly change the meaning of code in any other files that include this header.
     std::string name;
     int health;
+    int* currentX;
 
 public:
     // Copy constructor. It is called when a copy has to be made. For example when an object is passed by value to a function as a parameter
@@ -27,6 +28,7 @@ public:
     // Has to be passed by reference, otherwise it'd just create an endless loop as you're constantly copying.
     Player(const Player &source);
 
+    Player(int currentX);
     Player(std::string name = "Player", int health = 100);
 
     // Destructors are proceeded with a tilde and they are automatically run when an object is destroyed. Only 1 destructor
