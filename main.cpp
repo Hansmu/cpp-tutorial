@@ -66,8 +66,9 @@ int main() {
 
     cout << endl;
 
-    Player bob;
-    Player hero;
+    Player noArgsConstructor;
+    Player bob("Bobbert");
+    Player hero("Hero", 250);
 
     bob.setName("Bobbert");
 

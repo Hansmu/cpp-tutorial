@@ -9,6 +9,7 @@
 #define CPP_TUTORIAL_PLAYER_H
 
 #include <string>
+#include <iostream>
 
 class Player {
 private:
@@ -18,6 +19,28 @@ private:
     int health {100};
 
 public:
+    Player() {
+        name = "Player";
+        health = 100;
+    }
+
+    Player(std::string name) {
+        this->name = name;
+        health = 100;
+    }
+
+    Player(std::string name, int health) {
+        this->name = name;
+        this->health = health;
+    }
+
+    // Destructors are proceeded with a tilde and they are automatically run when an object is destroyed. Only 1 destructor
+    // Is allowed per class, it cannot be overloaded. Useful for releasing memory and other resources.
+    // When the object memory is released or they go out of scope the destructor is called.
+    ~Player() {
+        std::cout << "Destroyed!" << std::endl;
+    }
+
     void setName(std::string newName);
     std::string getName();
 
