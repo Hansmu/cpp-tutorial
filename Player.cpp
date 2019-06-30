@@ -1,12 +1,5 @@
 #include "Player.h"
 
-Player::Player() : Player{"Player", 100} {
-
-}
-
-Player::Player(std::string name) : Player{name, 100}{
-}
-
 Player::Player(std::string name, int health) : name{name}, health{health}{
 }
 

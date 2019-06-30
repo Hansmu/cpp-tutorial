@@ -19,9 +19,7 @@ private:
     int health;
 
 public:
-    Player();
-    Player(std::string name);
-    Player(std::string name, int health);
+    Player(std::string name = "Player", int health = 100);
 
     // Destructors are proceeded with a tilde and they are automatically run when an object is destroyed. Only 1 destructor
     // Is allowed per class, it cannot be overloaded. Useful for releasing memory and other resources.
