@@ -1,7 +1,12 @@
+// Include with angle brackets is used to include system header files
 #include <iostream>
 #include <vector>
 #include <cstring>
 #include <string>
+
+// Double quotes are used to include header files that are local to this project
+// Always include .h files, never include .cpp files.
+#include "Player.h"
 
 using namespace std;
 
@@ -60,6 +65,21 @@ int main() {
     }
 
     cout << endl;
+
+    Player bob;
+    Player hero;
+
+    bob.setName("Bobbert");
+
+    Player players[] {bob, hero};
+
+    Player* enemy {nullptr};
+    enemy = new Player;
+    // The following are the same ways to access attribute
+    (*enemy).setHealth(100);
+    enemy -> setHealth(150);
+
+    delete enemy;
 
     return 0;
 }
