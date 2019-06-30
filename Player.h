@@ -19,6 +19,14 @@ private:
     int health;
 
 public:
+    // Copy constructor. It is called when a copy has to be made. For example when an object is passed by value to a function as a parameter
+    // Or returning an object from a function by value.
+    // If it isn't defined, then a compiler generates a default one.
+    // Pointers will be copied but not the value it is pointing to. This is called a shallow copy.
+    // Always define a user defined copy constructor if you're using raw pointers.
+    // Has to be passed by reference, otherwise it'd just create an endless loop as you're constantly copying.
+    Player(const Player &source);
+
     Player(std::string name = "Player", int health = 100);
 
     // Destructors are proceeded with a tilde and they are automatically run when an object is destroyed. Only 1 destructor

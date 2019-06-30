@@ -24,6 +24,7 @@ void pointerExample();
 void passByReferenceExample(int *num);
 void display(const vector<string> *const v);
 int* createArray(size_t size, int init_value = 0);
+void displayPlayer(Player p);
 
 int main() {
     variableExamples();
@@ -82,7 +83,14 @@ int main() {
 
     delete enemy;
 
+    displayPlayer(bob);
+    Player copiedByConstructor {bob};
+
     return 0;
+}
+
+void displayPlayer(Player p) {
+    cout << "The player is " << p.getName() << endl;
 }
 
 int* createArray(size_t size, int init_value) {
