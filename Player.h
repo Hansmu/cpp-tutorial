@@ -16,30 +16,17 @@ private:
     // We don't want to use include namespace in header files because every file that includes them is going to get them.
     // It can unexpectedly change the meaning of code in any other files that include this header.
     std::string name;
-    int health {100};
+    int health;
 
 public:
-    Player() {
-        name = "Player";
-        health = 100;
-    }
-
-    Player(std::string name) {
-        this->name = name;
-        health = 100;
-    }
-
-    Player(std::string name, int health) {
-        this->name = name;
-        this->health = health;
-    }
+    Player();
+    Player(std::string name);
+    Player(std::string name, int health);
 
     // Destructors are proceeded with a tilde and they are automatically run when an object is destroyed. Only 1 destructor
     // Is allowed per class, it cannot be overloaded. Useful for releasing memory and other resources.
     // When the object memory is released or they go out of scope the destructor is called.
-    ~Player() {
-        std::cout << "Destroyed!" << std::endl;
-    }
+    ~Player();
 
     void setName(std::string newName);
     std::string getName();
