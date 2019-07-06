@@ -37,7 +37,7 @@ void Player::setName(std::string newName) {
     name = newName;
 }
 
-std::string Player::getName() {
+std::string Player::getName() const {
     return name;
 }
 
@@ -45,6 +45,6 @@ void Player::setHealth(int newHealth) {
     health = newHealth;
 }
 
-int Player::getHealth() {
+int Player::getHealth() const {
     return health;
 }

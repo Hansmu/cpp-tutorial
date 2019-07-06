@@ -53,10 +53,11 @@ public:
     ~Player();
 
     void setName(std::string newName);
-    std::string getName();
+    // In order to call methods on a const object we have to tell the compiler that a certain method will not modify the class object.
+    std::string getName() const;
 
     void setHealth(int newHealth);
-    int getHealth();
+    int getHealth() const;
 };
 
 
