@@ -27,6 +27,24 @@ int* createArray(size_t size, int init_value = 0);
 void displayPlayer(Player p);
 
 int main() {
+    int i = 20;
+    int &j = i; // Can be used to declare a reference, that means that it will be pointing to the same memory address as i.
+    int &&r_ref = 200;
+
+    cout << "RUNNING REFS" << endl;
+    cout << &i << endl;
+    cout << &j << endl;
+    cout << &r_ref << endl;
+
+    vector<Player> vec;
+    // We're creating an rvalue, no reference to the value
+    // Without a move constructor we'll allocate the memory, then call the copy constructor and allocate memory again to
+    // Be able to copy the value over. Then a destructor will be called to free up the original object raw pointers.
+    // With a move constructor we'll create the original object with a raw pointer. Then after the rvalue is created we'll
+    // Call the move constructor and steal the data from the raw pointer, meaning that we won't have to do additional allocations.
+    // The original object is going to go to release data from the null pointer, so it won't affect the new object.
+    vec.push_back(Player{10});
+
     variableExamples();
     arraysAndVectorsExamples();
     operatorExamples();
@@ -73,6 +91,7 @@ int main() {
 
     bob.setName("Bobbert");
 
+    // Copy constructors will be called to put them into the array.
     Player players[] {bob, hero};
 
     Player* enemy {nullptr};

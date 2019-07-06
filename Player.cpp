@@ -13,6 +13,14 @@ Player::Player(const Player &source) : name{source.name}, health{source.health} 
     std::cout << "Running copy constructor for: " << source.name << std::endl;
 }
 
+// As seen in the above copy constructor we assign a new memory block to our pointer and then copy the pointer data value over.
+// With a move constructor we take control of the data. We set the reference of the rvalue to be null and then assign our new object
+// That memory block. Thus we take over the created data. Destructor won't free that bit of memory either as the original rvalue
+// No longer has a reference to the block. There's no const in the signature because we need to be able to null out its pointer.
+Player::Player(Player &&source) : currentX{source.currentX} { // Steal the data
+    source.currentX = nullptr; // Null out the pointer
+}
+
 Player::Player(std::string name, int health) : name{name}, health{health}{
 }
 

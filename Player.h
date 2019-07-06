@@ -28,6 +28,22 @@ public:
     // Has to be passed by reference, otherwise it'd just create an endless loop as you're constantly copying.
     Player(const Player &source);
 
+    // lvalue - points to a specific memory location. So an lvalue is essentially a reference. Lvalue references are declared with a single &.
+    // rvalue - doesn't point to anywhere. Rvalue references are declared with two &. (&&)
+    // int& setGlobal() {
+    //      return global;
+    //  }
+    //  setGlobal() = 400;
+    // The above works because the function is returning a reference, thus it is returning an lvalue. If it would just
+    // return a number, then it'd be a rvalue and the assignment would not be possible.
+    //
+    // Copy constructors are called whenever a compiler needs to create a copy of our object.
+    // If our object contains a raw pointer, then we need to implement deep copy. We need to allocate space for the pointer
+    // And then copy its contents. The move constructor addresses this by moving the reference rather than copying it in the case of an rvalue.
+    // If a move constructor is not implemented, then a copy constructor is called. Implementing a move constructor is good
+    // for efficiency. A move constructor might not always be called as C++ may optimize the copying away. Sometimes
+    // not even a copy constructor can be seen. This could be due to a thing called copy elision.
+    Player(Player &&source);
     Player(int currentX);
     Player(std::string name = "Player", int health = 100);
 
