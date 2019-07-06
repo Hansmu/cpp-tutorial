@@ -1,7 +1,8 @@
 #include "Player.h"
 
 Player::Player(int currentX) {
-    this -> currentX = new int;
+    this -> currentX = new int; // this is a reserved keyword that contains the address of the current object.
+    // It's a pointer to the object.
     *(this -> currentX) = currentX;
 }
 
