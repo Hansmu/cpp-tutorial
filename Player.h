@@ -62,6 +62,8 @@ public:
     int getHealth() const;
 
     static int getNumberOfPlayers();
+
+    Player &operator=(const Player &player);
 };
 
 

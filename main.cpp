@@ -119,6 +119,13 @@ int main() {
     example.name = "Bananas";
 
     displayPlayerName(bob);
+
+    cout << "Assignment start" << endl;
+    noArgsConstructor = bob; // Assignment. Default shallow copy. If we have raw pointer data we have to deep copy.
+    // If there is no raw pointer in the class, then there's no need to create an overloaded operator.
+    cout << noArgsConstructor.getName() << endl;
+    cout << bob.getName() << endl;
+    cout << "Assignment end" << endl;
     return 0;
 }
 

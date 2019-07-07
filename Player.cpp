@@ -10,7 +10,11 @@ Player::Player(int currentX) : Player("Player", 100) {
 Player::Player(const Player &source) : name{source.name}, health{source.health} {
     currentX = new int;
     // Copy the pointer data value
-    *currentX = *source.currentX;
+    if (source.currentX == nullptr) {
+        *currentX = 0;
+    } else {
+        *currentX = *source.currentX;
+    }
     std::cout << "Running copy constructor for: " << source.name << std::endl;
 }
 
@@ -23,6 +27,8 @@ Player::Player(Player &&source) : currentX{source.currentX} { // Steal the data
 }
 
 Player::Player(std::string name, int health) : name{name}, health{health} {
+    currentX = new int;
+    *currentX = 0;
     Player::numberOfPlayers++;
 }
 
@@ -54,4 +60,24 @@ int Player::getHealth() const {
 int Player::numberOfPlayers {0}; // Cannot be initialized inside of the header.
 int Player::getNumberOfPlayers() {
     return numberOfPlayers;
+}
+
+Player &Player::operator=(const Player &rightHandSide) {
+    std::cout << "Copy assignment" << std::endl;
+
+    // Check for self assignment
+    if (this == &rightHandSide) {
+        return *this;
+    }
+
+    delete this -> currentX; // Delete my current reference as I will be overwritten
+    this -> currentX = new int;
+
+    *(this -> currentX) = *(rightHandSide.currentX); // Take the value from the right hand side value and copy it
+
+    // Non-pointer copies
+    this -> health = rightHandSide.health;
+    this -> name = rightHandSide.name;
+
+    return *this;
 }
