@@ -12,6 +12,7 @@
 #include <iostream>
 
 class Player {
+friend void displayPlayerName(Player &player);
 private:
     // We don't want to use include namespace in header files because every file that includes them is going to get them.
     // It can unexpectedly change the meaning of code in any other files that include this header.

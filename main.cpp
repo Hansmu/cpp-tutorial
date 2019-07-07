@@ -25,6 +25,7 @@ void passByReferenceExample(int *num);
 void display(const vector<string> *const v);
 int* createArray(size_t size, int init_value = 0);
 void displayPlayer(Player p);
+void displayPlayerName(Player &player);
 
 // Struct is essentially the same as a class, except its members are public by default where as a class' members
 // Are private by default. Use a struct for passive objects with public access, do not declare methods in struct.
@@ -117,7 +118,12 @@ int main() {
     Example example;
     example.name = "Bananas";
 
+    displayPlayerName(bob);
     return 0;
+}
+
+void displayPlayerName(Player &player) {
+    cout << player.name << endl;
 }
 
 void displayPlayer(Player p) {
