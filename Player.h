@@ -18,6 +18,7 @@ private:
     std::string name;
     int health;
     int* currentX;
+    static int numberOfPlayers;
 
 public:
     // Copy constructor. It is called when a copy has to be made. For example when an object is passed by value to a function as a parameter
@@ -58,6 +59,8 @@ public:
 
     void setHealth(int newHealth);
     int getHealth() const;
+
+    static int getNumberOfPlayers();
 };
 
 

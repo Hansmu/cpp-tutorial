@@ -105,6 +105,8 @@ int main() {
     displayPlayer(bob);
     Player copiedByConstructor {bob};
 
+    cout << "Static call: " << Player::getNumberOfPlayers() << endl;
+
     return 0;
 }
 
