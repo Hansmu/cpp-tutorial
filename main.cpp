@@ -26,6 +26,13 @@ void display(const vector<string> *const v);
 int* createArray(size_t size, int init_value = 0);
 void displayPlayer(Player p);
 
+// Struct is essentially the same as a class, except its members are public by default where as a class' members
+// Are private by default. Use a struct for passive objects with public access, do not declare methods in struct.
+// If you start making things private, just use a class instead.
+struct Example {
+    string name;
+};
+
 int main() {
     int i = 20;
     int &j = i; // Can be used to declare a reference, that means that it will be pointing to the same memory address as i.
@@ -106,6 +113,9 @@ int main() {
     Player copiedByConstructor {bob};
 
     cout << "Static call: " << Player::getNumberOfPlayers() << endl;
+
+    Example example;
+    example.name = "Bananas";
 
     return 0;
 }
