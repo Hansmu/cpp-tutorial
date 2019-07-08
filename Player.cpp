@@ -57,6 +57,10 @@ int Player::getHealth() const {
     return health;
 }
 
+int Player::getCurrentX() {
+    return *currentX;
+}
+
 int Player::numberOfPlayers {0}; // Cannot be initialized inside of the header.
 int Player::getNumberOfPlayers() {
     return numberOfPlayers;
@@ -98,6 +102,13 @@ Player &Player::operator=(Player &&rightHandSide) {
     // Non-pointer copies
     this -> health = rightHandSide.health;
     this -> name = rightHandSide.name;
+
+    return *this;
+}
+
+Player Player::operator++(int) {
+    *(this -> currentX) = *(this -> currentX) + 1;
+    this -> health++;
 
     return *this;
 }

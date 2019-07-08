@@ -126,6 +126,12 @@ int main() {
     cout << noArgsConstructor.getName() << endl;
     cout << bob.getName() << endl;
     cout << "Assignment end" << endl;
+
+
+    cout << "Before increment: " << bob.getHealth() << ", " << bob.getCurrentX() << endl;
+    bob++;
+    cout << "After increment: " << bob.getHealth() << ", " << bob.getCurrentX() << endl;
+
     return 0;
 }
 
