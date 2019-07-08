@@ -81,3 +81,23 @@ Player &Player::operator=(const Player &rightHandSide) {
 
     return *this;
 }
+
+Player &Player::operator=(Player &&rightHandSide) {
+    std::cout << "Move assignment" << std::endl;
+
+    // Check for self assignment
+    if (this == &rightHandSide) {
+        return *this;
+    }
+
+    delete this -> currentX; // Delete my current reference as I will be overwritten
+    this -> currentX = rightHandSide.currentX;
+
+    rightHandSide.currentX = nullptr;
+
+    // Non-pointer copies
+    this -> health = rightHandSide.health;
+    this -> name = rightHandSide.name;
+
+    return *this;
+}

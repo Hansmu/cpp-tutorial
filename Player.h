@@ -64,6 +64,7 @@ public:
     static int getNumberOfPlayers();
 
     Player &operator=(const Player &player);
+    Player &operator=(Player &&player);
 };
 
 
