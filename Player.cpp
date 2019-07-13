@@ -123,3 +123,11 @@ Player Player::operator+(const Player &rhs) const {
 
     return Player(newName, newHealth);
 }
+
+Player operator-(const Player &obj) {
+    int newCurrentX = 255 - *(obj.currentX);
+    Player newPlayer(newCurrentX);
+    newPlayer.setName(obj.name);
+    newPlayer.setHealth(obj.health);
+    return newPlayer;
+}
