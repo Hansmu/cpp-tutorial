@@ -112,3 +112,14 @@ Player Player::operator++(int) {
 
     return *this;
 }
+
+bool Player::operator==(const Player &rhs) const {
+    return this -> name == rhs.name && this -> health == rhs.health;
+}
+
+Player Player::operator+(const Player &rhs) const {
+    int newHealth = this -> health + rhs.health;
+    std::string newName = this -> name + " feat " + rhs.name;
+
+    return Player(newName, newHealth);
+}
