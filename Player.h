@@ -71,7 +71,6 @@ public:
     Player operator++(int); //Unary operators do not take a parameter as you have a single parameter.
     Player operator+(const Player &rightHandSide) const; // Binary ones take a parameter.
 
-    Player operator+(const Player &rhs) const;
     bool operator==(const Player &rhs) const;
 };
 
