@@ -131,3 +131,13 @@ Player operator-(const Player &obj) {
     newPlayer.setHealth(obj.health);
     return newPlayer;
 }
+
+std::ostream &operator<<(std::ostream &os, const Player &rhs) {
+    os << rhs.health << ";" << rhs.name;
+    return os;
+}
+
+std::istream &operator>>(std::istream &in, Player &rhs) {
+    in >> rhs.name;
+    return in;
+}

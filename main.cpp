@@ -132,6 +132,9 @@ int main() {
     bob++;
     cout << "After increment: " << bob.getHealth() << ", " << bob.getCurrentX() << endl;
 
+//    cin >> bob;
+    cout << bob;
+
     return 0;
 }
 

@@ -14,6 +14,10 @@
 class Player {
 friend void displayPlayerName(Player &player);
 friend Player operator-(const Player &obj);
+friend std::ostream &operator<<(std::ostream &os, const Player &rhs);
+friend std::istream &operator>>(std::istream &in, Player &rhs); // Since we're getting a value from the input, we won't have it as const
+// As we will be overwriting it.
+
 private:
     // We don't want to use include namespace in header files because every file that includes them is going to get them.
     // It can unexpectedly change the meaning of code in any other files that include this header.
