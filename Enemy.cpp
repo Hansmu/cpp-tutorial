@@ -22,3 +22,7 @@ Enemy::Enemy(std::string masterName) : Player{"Minion for " + masterName, 56} {
 Enemy::Enemy(const Enemy &source) : Player{source} {
     std::cout << "Calling copy constructor" << std::endl;
 }
+
+void Enemy::move() {
+    std::cout << "Moving for the glory of " << masterName << std::endl;
+}

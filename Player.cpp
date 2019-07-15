@@ -145,3 +145,7 @@ std::istream &operator>>(std::istream &in, Player &rhs) {
 void Player::attack() {
     std::cout << "Attacking target!" << std::endl;
 }
+
+void Player::move() {
+    std::cout << "Moving forward!" << std::endl;
+}

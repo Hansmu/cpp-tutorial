@@ -79,6 +79,8 @@ public:
     Player operator+(const Player &rightHandSide) const; // Binary ones take a parameter.
 
     bool operator==(const Player &rhs) const;
+
+    virtual void move();
 };
 
 

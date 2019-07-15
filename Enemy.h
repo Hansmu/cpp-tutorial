@@ -12,6 +12,11 @@ public:
     void setMasterName(const std::string &masterName);
     Enemy(std::string masterName);
     Enemy(const Enemy &source);
+    // Static binding is the default in C++. That means it will call the parent's method instead of the child's as it is in Java.
+    // So an Account withdraw will be called, instead of its child SavingAccount withdraw. Happens in compile time.
+    // Dynamic binding is what Java uses by default. Happens in run time.
+    // Virtual doesn't have to be used again, but it's clearer.
+    virtual void move();
 };
 
 
