@@ -68,6 +68,8 @@ public:
 
     int getCurrentX();
 
+    void attack();
+
     static int getNumberOfPlayers();
 
     Player &operator=(const Player &player);
