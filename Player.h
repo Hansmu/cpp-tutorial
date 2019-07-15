@@ -11,6 +11,8 @@
 #include <string>
 #include <iostream>
 
+// Adding a final keyword means that the class cannot be derived from. No extending
+// class Player final { }
 class Player {
 friend void displayPlayerName(Player &player);
 friend Player operator-(const Player &obj);
@@ -80,6 +82,8 @@ public:
 
     bool operator==(const Player &rhs) const;
 
+    // Add final here means that the function cannot be overriden by a child class
+    // virtual void move() final;
     virtual void move();
 };
 
