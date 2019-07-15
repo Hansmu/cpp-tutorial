@@ -57,7 +57,7 @@ public:
     // Destructors are proceeded with a tilde and they are automatically run when an object is destroyed. Only 1 destructor
     // Is allowed per class, it cannot be overloaded. Useful for releasing memory and other resources.
     // When the object memory is released or they go out of scope the destructor is called.
-    ~Player();
+    virtual ~Player(); // If a function has virtual functions, then that class should supply a virtual destructor.
 
     void setName(std::string newName);
     // In order to call methods on a const object we have to tell the compiler that a certain method will not modify the class object.

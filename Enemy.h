@@ -17,6 +17,7 @@ public:
     // Dynamic binding is what Java uses by default. Happens in run time.
     // Virtual doesn't have to be used again, but it's clearer.
     virtual void move();
+    virtual ~Enemy();
 };
 
 

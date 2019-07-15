@@ -26,3 +26,8 @@ Enemy::Enemy(const Enemy &source) : Player{source} {
 void Enemy::move() {
     std::cout << "Moving for the glory of " << masterName << std::endl;
 }
+
+// By default would call the base class destructor, but that might lead to memory leaks if we have separate resources defined in our child classes.
+Enemy::~Enemy() {
+    Player::~Player();
+}
