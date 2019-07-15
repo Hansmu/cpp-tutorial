@@ -84,6 +84,8 @@ public:
 
     // Add final here means that the function cannot be overriden by a child class
     // virtual void move() final;
+    // If we'd add = 0 to the end, then we'd be defining an abstract class.
+    // virtual void move() = 0;
     virtual void move();
 };
 
