@@ -155,6 +155,12 @@ public:
 // Destructors should never throw an exception. A constructor may throw an exception.
 void exceptionExample() {
     try {
+        throw 0;
+    } catch(...) {
+        cerr << "Caught whatever exception!" << endl;
+    }
+
+    try {
         throw SomeException();
     } catch(const SomeException &ex) {
         cerr << "Error caught " << ex.what() << endl;
