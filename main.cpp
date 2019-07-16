@@ -4,6 +4,7 @@
 #include <cstring>
 #include <string>
 #include <memory>
+#include <iomanip> // Needed for manipulators
 
 // Double quotes are used to include header files that are local to this project
 // Always include .h files, never include .cpp files.
@@ -38,6 +39,12 @@ struct Example {
 };
 
 int main() {
+    // All sorts of stream options can be set
+    std::cout << std::boolalpha; // Set a boolean to be displayed as true/false
+    std::cout.setf(std::ios::boolalpha);
+    // Reset to default
+    std::cout << std::resetiosflags(std::ios::boolalpha);
+
     int i = 20;
     int &j = i; // Can be used to declare a reference, that means that it will be pointing to the same memory address as i.
     int &&r_ref = 200;
