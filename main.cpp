@@ -158,6 +158,7 @@ int main() {
 
 void fileStreamExample() {
     std::ifstream inFile;
+    std::ofstream outFile {"../output.txt", std::ios::app}; // Specify append mode. By default opens for overwriting.
     string line{};
     inFile.open("../test.txt"); // The executable gets put into cmake-build-debug/cpp_tutorial.exe, so we have to go one folder up to get to our source directory.
 
@@ -179,7 +180,10 @@ void fileStreamExample() {
 
     cout << "Read line again: " << line << endl;
 
+    outFile << line << endl;
+
     inFile.close();
+    outFile.close();
 }
 
 class SomeException : std::exception {
