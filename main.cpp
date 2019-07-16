@@ -166,6 +166,16 @@ void smartPointerExample() {
     if (!p1) {
         cout << "The pointer of p1 is now a nullptr" << endl;
     }
+
+    // Shared pointer counts pointers to it, when the count reaches 0, then it gets deleted. .use_count()
+    // Similar to make_unique, there's a make_shared which is more efficient.
+    shared_ptr<Player> p5 = make_shared<Player>(125);
+    shared_ptr<Player> p6 {p5};
+    vector<shared_ptr<Player>> shared_vec;
+
+    cout << "Use count before push: " << p5.use_count() << endl;
+    shared_vec.push_back(p5);
+    cout << "Use count after push: " << p5.use_count() << endl;
 }
 
 void displayPlayerName(Player &player) {
