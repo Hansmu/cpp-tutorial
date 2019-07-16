@@ -5,6 +5,7 @@
 #include <string>
 #include <memory>
 #include <iomanip> // Needed for manipulators
+#include <fstream>
 
 // Double quotes are used to include header files that are local to this project
 // Always include .h files, never include .cpp files.
@@ -30,6 +31,7 @@ void displayPlayer(Player p);
 void displayPlayerName(Player &player);
 void smartPointerExample();
 void exceptionExample();
+void fileStreamExample();
 
 // Struct is essentially the same as a class, except its members are public by default where as a class' members
 // Are private by default. Use a struct for passive objects with public access, do not declare methods in struct.
@@ -149,7 +151,35 @@ int main() {
 
     exceptionExample();
 
+    fileStreamExample();
+
     return 0;
+}
+
+void fileStreamExample() {
+    std::ifstream inFile;
+    string line{};
+    inFile.open("../test.txt"); // The executable gets put into cmake-build-debug/cpp_tutorial.exe, so we have to go one folder up to get to our source directory.
+
+    if (!inFile) {
+        cerr << "Unable to open file" << endl;
+    }
+
+    // Read until the first space.
+    inFile >> line;
+
+    cout << "Read line: " << line << endl;
+
+    line = "";
+    // Rewind to the start of the file.
+    inFile.clear();
+    inFile.seekg(0);
+
+    std::getline(inFile, line);
+
+    cout << "Read line again: " << line << endl;
+
+    inFile.close();
 }
 
 class SomeException : std::exception {
