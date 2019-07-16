@@ -3,6 +3,7 @@
 #include <vector>
 #include <cstring>
 #include <string>
+#include <memory>
 
 // Double quotes are used to include header files that are local to this project
 // Always include .h files, never include .cpp files.
@@ -26,6 +27,7 @@ void display(const vector<string> *const v);
 int* createArray(size_t size, int init_value = 0);
 void displayPlayer(Player p);
 void displayPlayerName(Player &player);
+void smartPointerExample();
 
 // Struct is essentially the same as a class, except its members are public by default where as a class' members
 // Are private by default. Use a struct for passive objects with public access, do not declare methods in struct.
@@ -135,7 +137,35 @@ int main() {
 //    cin >> bob;
     cout << bob;
 
+    smartPointerExample();
+
     return 0;
+}
+
+void smartPointerExample() {
+    // Unique pointer - can't have multiple unique pointers pointing at the same object. They cannot be copied or assigned.
+    // However, they can be moved.
+    // .reset() method makes the reference a nullptr. The memory it points to gets released.
+    std::unique_ptr<Player> p1 {new Player{255}};
+    // make_unique is more efficient - no new or delete calls.
+    std::unique_ptr<Player> p2 = std::make_unique<Player>(255);
+    auto p3 = std::make_unique<Player>(255);
+
+    // Give ownership over to p4, setting p3 to null.
+    unique_ptr<Player> p4;
+    p4 = move(p3);
+
+    p1 -> attack();
+    cout << "P1: " << *p1 << endl;
+
+    // push_back into a vector cannot simply be used, as copies aren't allowed. Can be moved into the vector, though.
+    vector<unique_ptr<Player>> vec;
+//    vec.push_back(p1); This would produce a compiler error, as it would call a copy
+    vec.push_back(std::move(p1)); // p1 sets it to a nullptr. Ownership of the pointer goes to the vector.
+
+    if (!p1) {
+        cout << "The pointer of p1 is now a nullptr" << endl;
+    }
 }
 
 void displayPlayerName(Player &player) {
