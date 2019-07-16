@@ -142,6 +142,11 @@ int main() {
     return 0;
 }
 
+void custom_deleter(Player *raw_pointer) {
+    cout << "Running custom deleter." << endl;
+    delete raw_pointer;
+}
+
 void smartPointerExample() {
     // Unique pointer - can't have multiple unique pointers pointing at the same object. They cannot be copied or assigned.
     // However, they can be moved.
@@ -180,6 +185,8 @@ void smartPointerExample() {
     // Weak pointers are used on shared pointers. It isn't counted towards usage. If two classes refer to each other, then
     // It can produce a memory leak. As there are references when they go out of scope.
     weak_ptr<Player> p7 {p5};
+
+    shared_ptr<Player> p8 {new Player(), custom_deleter};
 }
 
 void displayPlayerName(Player &player) {
