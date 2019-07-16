@@ -176,6 +176,10 @@ void smartPointerExample() {
     cout << "Use count before push: " << p5.use_count() << endl;
     shared_vec.push_back(p5);
     cout << "Use count after push: " << p5.use_count() << endl;
+
+    // Weak pointers are used on shared pointers. It isn't counted towards usage. If two classes refer to each other, then
+    // It can produce a memory leak. As there are references when they go out of scope.
+    weak_ptr<Player> p7 {p5};
 }
 
 void displayPlayerName(Player &player) {
