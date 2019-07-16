@@ -29,5 +29,5 @@ void Enemy::move() {
 
 // By default would call the base class destructor, but that might lead to memory leaks if we have separate resources defined in our child classes.
 Enemy::~Enemy() {
-    Player::~Player();
+
 }
