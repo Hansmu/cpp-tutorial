@@ -32,6 +32,7 @@ void displayPlayerName(Player &player);
 void smartPointerExample();
 void exceptionExample();
 void fileStreamExample();
+void stringStreamExample();
 
 // Struct is essentially the same as a class, except its members are public by default where as a class' members
 // Are private by default. Use a struct for passive objects with public access, do not declare methods in struct.
@@ -153,7 +154,21 @@ int main() {
 
     fileStreamExample();
 
+    stringStreamExample();
+
     return 0;
+}
+
+void stringStreamExample() {
+    // Instead of a file we now have the data in a string, we can read it as if we were reading it from a file
+    int num {};
+    double total {};
+    string name {};
+    string info {"Moe 100 1234.1"};
+
+    std::istringstream iss {info};
+
+    iss >> name >> num >> total;
 }
 
 void fileStreamExample() {
