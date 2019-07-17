@@ -6,6 +6,7 @@
 #include <memory>
 #include <iomanip> // Needed for manipulators
 #include <fstream>
+#include <algorithm>
 
 // Double quotes are used to include header files that are local to this project
 // Always include .h files, never include .cpp files.
@@ -35,6 +36,7 @@ void exceptionExample();
 void fileStreamExample();
 void stringStreamExample();
 void iteratorExample();
+void algorithmExample();
 
 // typename and class are both used in the brackets.
 template <typename T1, class T2>
@@ -173,8 +175,30 @@ int main() {
     cout << "Getting from generic class: " << ex.getProperty() << endl;
 
     iteratorExample();
+    algorithmExample();
 
     return 0;
+}
+
+void algorithmExample() {
+    vector<int> vec {1, 2, 3, 4, 5};
+    // std::begin(vec) is the same as vec.begin()
+    auto loc = std::find(std::begin(vec), std::end(vec), 1);
+
+    if (loc != std::end(vec)) {
+        cout << "Found number!" << endl;
+    } else {
+        cout << "Could not find number." << endl;
+    }
+
+    // Lambda expression example
+    int counted = std::count_if(vec.begin(), vec.end(), [](int x) {
+       return x % 2 == 0; // Counting them up if the condition is true
+    });
+
+    string string1 {"This is a test"};
+    std::transform(string1.begin(), string1.end(), string1.begin(), ::toupper);// ::toupper means global scope.
+    cout << string1 << endl;
 }
 
 void iteratorExample() {
