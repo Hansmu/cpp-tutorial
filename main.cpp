@@ -10,6 +10,7 @@
 // Double quotes are used to include header files that are local to this project
 // Always include .h files, never include .cpp files.
 #include "Player.h"
+#include "GenericClass.h"
 
 using namespace std;
 
@@ -165,6 +166,10 @@ int main() {
     cout << "Running min: " << endl;
     cout << min<double, double>(2.0, 2.3) << endl;
     cout << min(2.0, 2.3) << endl; // In simpler cases the compiler can deduce the types on its own.
+
+    GenericClass<int> ex{};
+    ex.setProperty(10);
+    cout << "Getting from generic class: " << ex.getProperty() << endl;
 
     return 0;
 }
