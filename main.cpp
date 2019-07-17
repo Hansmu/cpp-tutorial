@@ -34,6 +34,12 @@ void exceptionExample();
 void fileStreamExample();
 void stringStreamExample();
 
+// typename and class are both used in the brackets.
+template <typename T1, class T2>
+T1 min(T1 a, T2 b) {
+    return ( a < b) ? a : b;
+}
+
 // Struct is essentially the same as a class, except its members are public by default where as a class' members
 // Are private by default. Use a struct for passive objects with public access, do not declare methods in struct.
 // If you start making things private, just use a class instead.
@@ -155,6 +161,10 @@ int main() {
     fileStreamExample();
 
     stringStreamExample();
+
+    cout << "Running min: " << endl;
+    cout << min<double, double>(2.0, 2.3) << endl;
+    cout << min(2.0, 2.3) << endl; // In simpler cases the compiler can deduce the types on its own.
 
     return 0;
 }
