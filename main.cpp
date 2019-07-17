@@ -34,6 +34,7 @@ void smartPointerExample();
 void exceptionExample();
 void fileStreamExample();
 void stringStreamExample();
+void iteratorExample();
 
 // typename and class are both used in the brackets.
 template <typename T1, class T2>
@@ -171,7 +172,34 @@ int main() {
     ex.setProperty(10);
     cout << "Getting from generic class: " << ex.getProperty() << endl;
 
+    iteratorExample();
+
     return 0;
+}
+
+void iteratorExample() {
+    vector<int> numbers {1, 2, 3, 4, 5}; // End of the vector is after the last element, so the sixth element.
+    auto it = numbers.begin();
+    cout << "Iterator examples: " << endl;
+    cout << *it << endl; // This isn't a real pointer, the syntax simply looks like it. It's an object.
+
+    it++;
+    cout << *it << endl;
+
+    it = numbers.end() - 1;
+    cout << *it << endl;
+
+    for (auto iter = numbers.begin(); iter != numbers.end(); iter++) {
+        cout << *iter << endl;
+    }
+
+    // Reverse order
+    for (auto iter = numbers.rbegin(); iter != numbers.rend(); iter++) {
+        cout << *iter << endl;
+    }
+
+    cout << "Iterator examples end" << endl;
+
 }
 
 void stringStreamExample() {
